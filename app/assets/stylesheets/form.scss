@@ -1,0 +1,16 @@
+input, select {
+  &.text {
+    height: 40px;
+    width: 340px;
+    left: 26px;
+    top: 190px;
+    border-radius: 10px;
+    background-color: #F4F4F4;
+    border:none;
+    justify-content: center;
+    
+      }
+}
+label {
+  font-size: 12px;
+}

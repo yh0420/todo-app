@@ -1,0 +1,17 @@
+@import 'header';
+@import 'form';
+@import 'buttons';
+body {
+  margin: 0px;
+}
+.container {
+  padding:26px;
+  width: 100%;
+}
+html {
+  width: 100%;
+  height: 921px;
+  word-spacing: 1px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
