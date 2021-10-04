@@ -10,3 +10,5 @@ class BoardsController < ApplicationController
     @board.save
   end
 end
+
+#@board = Board.first

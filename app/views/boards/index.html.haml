@@ -1,0 +1,9 @@
+.container
+  %h2 ALL Boards
+  - @boards.each do |board|
+    .card
+      .card-body
+        %h5.card-title  
+          = board.title
+        %p.card-text 
+          = board.content
