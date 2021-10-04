@@ -14,4 +14,5 @@
 #  index_boards_on_user_id  (user_id)
 #
 class Board < ApplicationRecord
+  belongs_to :user, optional: true #optional: true = belongs_toの外部キーのnilを許可するもの
 end
