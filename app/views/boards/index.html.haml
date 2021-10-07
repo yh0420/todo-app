@@ -2,9 +2,16 @@
   %h2 ALL Boards
   - @boards.each do |board|
     .card
-      = link_to board_path(board) do
+      = link_to board_path(board) do  
+        - if user_signed_in? && current_user.has_written?(board)
+          .dropdown
+            = image_tag 'actions.svg', class: 'dropbtn'
+            .dropdown-content.mini
+              = link_to '編集する', edit_board_path(board.id)
+              = link_to '削除する', board_path(board.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
         .card-body
           %h5.card-title  
             = board.title
           %p.card-text 
             = board.content
+      

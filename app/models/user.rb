@@ -30,4 +30,8 @@ class User < ApplicationRecord
       'default-avatar.png'
     end
   end
+
+  def has_written?(board)
+    boards.exists?(id: board.id)
+  end
 end
