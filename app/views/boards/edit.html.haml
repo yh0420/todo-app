@@ -1,0 +1,12 @@
+.container
+  %h2 Edit Boards
+  = form_with(model: @board, url: board_path(@board), method: 'put', local: true) do |f|
+    %div
+      = f.label :title, 'Title'
+    %div
+      = f.text_field :title, class: 'text'
+    %div
+      = f.label :content, 'Description'
+    %div
+      = f.text_area :content, class: 'text'
+    = f.submit '編集する', class: 'btn-primary'

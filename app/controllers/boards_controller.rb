@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @board = Board.find(params[:id])
   end
 
   def create
@@ -20,13 +21,35 @@ class BoardsController < ApplicationController
   def new
     @board = current_user.boards.build
   end
+
+  def destroy
+    board = current_user.boards.find(params[:id])
+    board.destroy!
+    redirect_to root_path, notice: '削除に成功しました'
+  end
+
+  def edit
+    @board = current_user.boards.find(params[:id])
+  end
+
+  def update
+    @board = current_user.boards.find(params[:id])
+    if @board.update(board_params)
+      redirect_to root_path(@board), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+  end
 end
+
 
 
 private
-def board_params
-  params.require(:board).permit(:title, :content)
-end
-def set_board
-  @board = Board.find(params[:id])
-end
+  def board_params
+    params.require(:board).permit(:title, :content, :user_id)
+  end
+
+  def set_article
+    @board = board.find(params[:id])
+  end
