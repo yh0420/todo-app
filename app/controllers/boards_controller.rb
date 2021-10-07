@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @board = Board.find(params[:id])
   end
 
   def create
@@ -20,7 +21,14 @@ class BoardsController < ApplicationController
   def new
     @board = current_user.boards.build
   end
+
+  def destroy
+  end
+
+  def edit
+  end
 end
+
 
 
 private

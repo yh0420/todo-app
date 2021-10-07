@@ -2,8 +2,9 @@
   %h2 ALL Boards
   - @boards.each do |board|
     .card
-      .card-body
-        %h5.card-title  
-          = board.title
-        %p.card-text 
-          = board.content
+      = link_to board_path(board) do
+        .card-body
+          %h5.card-title  
+            = board.title
+          %p.card-text 
+            = board.content
