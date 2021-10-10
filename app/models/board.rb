@@ -17,4 +17,7 @@ class Board < ApplicationRecord
   belongs_to :user, optional: true #optional: true = belongs_toの外部キーのnilを許可するもの
   validates :title, presence: true
   validates :content, presence:true
+
+  belongs_to :user
+  has_many :tasks, dependent: :destroy
 end
