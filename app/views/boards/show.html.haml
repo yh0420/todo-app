@@ -1,5 +1,16 @@
 .container
-  .board_show
-    %h1.board_title= @board.title
-/cardモデル作成後ここでcardのHTMLにrenderする
-    
+  = @board.title
+  - @tasks.each do |task|
+    .card
+      = link_to board_task_path(task) do  
+        - if user_signed_in? && current_user.has_written?(task)
+          .dropdown
+            = image_tag 'actions.svg', class: 'dropbtn'
+            .dropdown-content.mini
+              = link_to '編集する', edit_board_task_path(task.id)
+              = link_to '削除する', board_task_path(task.id), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+        .card-body
+          %h5.card-title  
+            = task.title
+          %p.card-text 
+            = task.content
