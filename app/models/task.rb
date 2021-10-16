@@ -23,5 +23,6 @@ class Task < ApplicationRecord
 
     belongs_to :user
     belongs_to :board, optional: true
+    has_many :comment, dependent: :destroy
 
 end
