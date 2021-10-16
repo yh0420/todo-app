@@ -1,6 +1,6 @@
 .container
   %h2 Edit Boards
-  = form_with(model: @board, url: board_path(@board), method: 'put', local: true) do |f|
+  = form_with(model: @task, url: board_task_path(@task.board), method: 'put', local: true) do |f|
     %div
       = f.label :title, 'Title'
     %div
