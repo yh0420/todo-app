@@ -14,3 +14,6 @@
             = task.title
           %p.card-text 
             = task.content
+  .new-board 
+    = link_to image_tag('Rectangle (2).png', class:"image_link"), new_board_task_path(@board) 
+    %p New Task  
