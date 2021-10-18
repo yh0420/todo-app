@@ -10,3 +10,13 @@
         = @task.title
       %p.card-text 
         = @task.content
+  .comment
+    %h2 Comment
+    .comment_card
+      - @comments.each do |comment|
+        .comment_card_content
+          = image_tag 'default-avatar.png'
+          %p= comment.content
+    .new-board 
+      = link_to image_tag('Rectangle (4).png', class:"image_link"), new_board_task_comment_path(@board,@task) 
+      %p Add new comment  
