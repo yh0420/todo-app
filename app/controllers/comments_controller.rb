@@ -11,7 +11,7 @@ def create
     @task = Task.find(params[:task_id])
     @comment = @task.comment.build(comment_params)
 if @comment.save
-    redirect_to board_task_path(board_id: @task.board_id, id: @task.id), notice: 'タスクを追加'
+    redirect_to board_task_path(board_id: @task.board_id, id: @task.id), notice: 'コメントを追加'
 else
     flash.now[:error] = '更新できませんでした'
     render :new
